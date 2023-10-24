@@ -1,7 +1,8 @@
 .container {
   background: url("../assets/bg-ball.png") no-repeat center center fixed;
-  background-color: #04438c;
   background-size: contain;
   height: 100vh;
   color: #fff;
+  display: flex;
+  justify-content: center;
 }
