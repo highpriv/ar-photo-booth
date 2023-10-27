@@ -1,17 +1,27 @@
 .container {
   background: url("../assets/bg-ball.png") no-repeat center center;
-  background-size: contain;
+  background-size: cover;
   height: 100%;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 35%
+}
+
+@media screen and (orientation: portrait) {
+  .container {
+    width: 100%;
+    background-color: red;
+  }
 }
 
 .hoverEffect:hover{
-  animation: mymove 5s infinite;
+  animation: hovEff 1.5s infinite;
 }
 
-@keyframes mymove {
-  50% {box-shadow: 10px 20px 30px blue;}
+@keyframes hovEff {
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+  }
 }

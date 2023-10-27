@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Action';
+    src: url('../assets/fonts/Action.ttf');
+    font-weight: 400;
+    font-style: normal;
+    }
+
 body{
-    background-color: #04438c;
+    background-color: #04438c;    
+    font-family: 'Action';
 }

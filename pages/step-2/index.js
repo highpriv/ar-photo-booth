@@ -10,6 +10,7 @@ import LukaDoncic from "@/assets/players/luka_doncic.png";
 import NikolaJokic from "@/assets/players/nikola_jokic.png";
 import RussellWestbrook from "@/assets/players/russel_westbrook.png";
 import StephenCurry from "@/assets/players/stephen_curry.png";
+import NBALogo from "@/assets/nba.png";
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 
@@ -70,19 +71,22 @@ export default function Step_2() {
         <div
           className={`flex flex-col items-center ${styles.container} shadow-lg`}
         >
-          <div className="px-5 shadow-lg py-10 flex flex-col gap-10">
-            <h1 className="uppercase text-center text-3xl font-bold">
+          <div className="px-5 shadow-lg py-10 flex flex-col gap-10 w-full">
+            <h1 className="uppercase text-center text-6xl sm:text-9xl xl:text-6xl font-bold">
               Pick your player
             </h1>
 
-            <div className="grid grid-cols-3 gap-4 pb-36">
+            <div className="grid grid-cols-3 portrait:grid-cols-2 gap-4 sm:gap-20 xl:gap-4 w-full portrait:mt-16">
               {players.map((player) => (
-                <div className="flex flex-col items-center">
-                  <a href="#">
-                  <Image src={player.img} alt={player.name} height="150" />
+                <div className="flex flex-col items-center hover:scale-110">
+                  <a href="/step-3">
+                    <Image src={player.img} alt={player.name} className='sm:h-96 xl:h-full w-auto' />
                   </a>
                 </div>
               ))}
+            </div>
+            <div className="flex justify-center portrait:mt-20">
+              <Image src={NBALogo} alt="" className='h-16 xl:h-16 sm:h-40 w-auto' />
             </div>
           </div>
         </div>
