@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35%
+  width: 35%;
 }
 
 @media screen and (orientation: portrait) {
@@ -16,7 +16,7 @@
   }
 }
 
-.hoverEffect:hover{
+.hoverEffect:hover {
   animation: hovEff 1.5s infinite;
 }
 
