@@ -81,10 +81,11 @@ export default function Step_3({ selectedImg }) {
   const userImage = players.find((player) => player.key === selectedImg).img
     .src;
   const webcamRef = useRef(null);
+  const [mailPopup, setMailPopup] = useState(false);
   const [next, setNext] = useState(false);
   const [counter, setCounter] = useState(10);
   const [isPhotoTaken, setIsPhotoTaken] = useState(false);
-  const [imagePosition, setImagePosition] = useState({ x: -100, y: 0 });
+  const [imagePosition, setImagePosition] = useState({ x: -12, y: 25 });
 
   setTimeout(() => {
     if (next) {
@@ -118,9 +119,12 @@ export default function Step_3({ selectedImg }) {
       webcamImg.onload = () => {
         canvas.width = webcamImg.width;
         canvas.height = webcamImg.height;
+
         ctx.drawImage(webcamImg, 0, 0);
         if (imagePosition) {
-          ctx.drawImage(userImg, imagePosition.x, imagePosition.y);
+          const scaleFactor = webcamImg.height / userImg.height;
+          const scaledWidth = userImg.width * scaleFactor;
+          ctx.drawImage(userImg, -50, 0, scaledWidth, webcamImg.height);
         }
         const finalImage = canvas.toDataURL("image/png");
         saveAs(finalImage, "edited-image.png");
@@ -150,10 +154,10 @@ export default function Step_3({ selectedImg }) {
               alt="User's Image"
               style={{
                 position: "absolute",
-                left: imagePosition.x + "px",
-                top: imagePosition.y + "px",
-                height: "100%",
-                width: "100%",
+                left: imagePosition.x + "%",
+                top: imagePosition.y + "%",
+                height: "50%",
+                width: "auto",
                 zIndex: 25,
               }}
             />
@@ -189,7 +193,10 @@ export default function Step_3({ selectedImg }) {
           <div className="absolute bottom-10">
             <div className="px-5">
               <div className="flex flex-col items-center gap-10">
-                <button className="uppercase text-center text-6xl xl:text-6xl sm:text-9xl font-bold bg-nba-blue px-7 py-1 sm:px-20 sm:py-10 xl:px-7 xl:py-1 rounded-3xl z-50">
+                <button
+                  onClick={() => setMailPopup(true)}
+                  className="uppercase text-center text-6xl xl:text-6xl sm:text-9xl font-bold bg-nba-blue px-7 py-1 sm:px-20 sm:py-10 xl:px-7 xl:py-1 rounded-3xl z-50 hover:bg-blue-900"
+                >
                   Get Your Photo
                 </button>
               </div>
@@ -197,6 +204,30 @@ export default function Step_3({ selectedImg }) {
           </div>
         )}
       </div>
+
+      {mailPopup && (
+        <div className="fixed right-0 bottom-0 px-3 py-5 bg-white m-10 text-nba-blue w-1/5">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl">Send Your Photo as Mail</h1>
+            <button
+              className="text-2xl flex bg-gray-200 p-5 w-3 h-3 justify-center items-center hover:bg-gray-300"
+              onClick={() => setMailPopup(false)}
+            >
+              <span>X</span>
+            </button>
+          </div>
+          <div className="flex flex-col gap-5 mt-5">
+            <input
+              type="email"
+              placeholder="Type your mail"
+              className="border-b-2 border-nba-blue"
+            />
+            <button className="bg-nba-blue text-white py-2 text-2xl uppercase hover:bg-blue-900">
+              Send
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
