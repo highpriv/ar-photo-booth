@@ -1,17 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import Webcam from "react-webcam";
-import DevinBooker from "@/assets/players_no_context/devin.jpg";
+import DevinBooker from "@/assets/players_no_context/devin.png";
 import BenSimmons from "@/assets/players/ben_simmons.png";
 import GiannisAntetokounmpo from "@/assets/players/giannis_antetokounmpo.png";
-import JoelEmbiid from "@/assets/players/joel_embiid.png";
-import JoshGiddey from "@/assets/players/josh_giddey.png";
-import KevinDurant from "@/assets/players/kevin_durant.png";
-import KyrieIrving from "@/assets/players/kyrie_irving.png";
-import LebronJames from "@/assets/players/lebron_james.png";
-import LukaDoncic from "@/assets/players/luka_doncic.png";
-import NikolaJokic from "@/assets/players/nikola_jokic.png";
+import JoelEmbiid from "@/assets/players_no_context/joel.png";
+import JoshGiddey from "@/assets/players_no_context/josh.png";
+import KevinDurant from "@/assets/players_no_context/kevin.png";
+import KyrieIrving from "@/assets/players_no_context/kyrie.png";
+import LebronJames from "@/assets/players_no_context/lebron.png";
+import LukaDoncic from "@/assets/players_no_context/luka.png";
+import NikolaJokic from "@/assets/players_no_context/nikola.png";
 import RussellWestbrook from "@/assets/players_no_context/russell.png";
-import StephenCurry from "@/assets/players/stephen_curry.png";
+import StephenCurry from "@/assets/players_no_context/stephen.png";
 import { saveAs } from "file-saver";
 
 export default function Step_3({ selectedImg }) {
